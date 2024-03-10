@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang='es'>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Com./patible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' href='./css/main.css'>
+    <link rel='stylesheet' type='text/css' href='./css/headerandfooter.css'>
+    <link rel='preconnect' href='https://fonts.googleapis.com'>
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+    <link href='https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,300;0,400;0,600;1,300&display=swap' rel='stylesheet'>
+    <script src="/js/subirarriba.js" defer></script>
+    <script src="/js/menu.js" defer></script>
+    <script defer src="/js/headerfollow.js"></script>
+    <link rel="icon" type="image/jpg" href="images/sanji.png"/>
+    <!-- Agrego las siguientes líneas para incluir React y ReactDOM -->
+    <script src='react/react.js'defer></script>
+    <script src='react/reactdom.js'defer></script>
+    <script src="react/babel.js"defer></script>
+
+    <title>NAKAMA FOOD</title>
+</head>
+
+<body>
+    <header class='cabecera'>
+        <div class='logo'> <a href="/index.html">
+            <p>NakamaFood</p> </a>
+        </div>
+        <nav class='nav_bar'>
+            <button class='intercambio-navegacion' id='btnMenu'>
+                <div class="hamburger">
+                <div class="_layer -top"></div>
+                <div class="_layer -mid"></div>
+                <div class="_layer -bottom"></div>
+            </div>
+            </button>
+            <ul class='nav-links' id='nav-links'>
+                <li> <a href='#destacadas'> Destacadas</a></li>
+                <li> <a href='#recientes'> Novedades</a></li>
+                <li> <a href='#califica'>Recetas</a></li>
+            </ul>
+        </nav>
+    </header>    
+    
+    <!-- HERO ZONE -->
+
+    <main class="content">
+        <div class="hero">
+            <div class="hero-text">
+                <h2>¡Bienvenido a </h2>
+                <h2> NAKAMA FOOD! </h2>
+                <h2>Descubre las deliciosas recetas inspiradas en tus series de anime favoritas</h2>
+                <p>Sumérgete en el mundo culinario de tus personajes preferidos y saborea la emoción de la aventura a través del paladar.</p>
+            </div>
+        </div>
+        
+    <section class='recetas-destacadas' id="destacadas">
+        <h2 class="titulosection">Recetas Destacadas</h2>
+        <div class='recetas-destacadas-container'>
+            <div class="destacada_mes">
+                <div class="receta-top">
+                    <h2>La "Receta top del mes" es para: </h2>
+                    <a href="recetario/narutoramen.html"> <img src='images/ramen-con-naruto-486.jpg' alt='receta'> </a>
+                    <a href="recetario/narutoramen.html"> El ramen de Naruto </a>
+                </div>
+
+            </div>
+
+            <div class="otras-destacadas">
+                <h2 class="titulosection">Y el puesto a Recetas destacada del mes</h2>
+                <!-- Agrega las cosas con react -->
+                <div id="recetas-mes"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class='novedades' id="recientes">
+        <h2 class="titulosection">Novedades</h2>
+                <!-- Agrega las cosas con react -->
+        <div class="novedades-recientes" id="novedad"> 
+        </div>
+    </section>
+
+    <section class='recetas-clasificadas' id="califica">
+        
+        <h2 class="titulosection">Recetas Clasificadas</h2>
+                <!-- Agrega las cosas con react -->
+        <div id="recetas-clasificadas"> </div>
+
+    </section>
+    <a href="#" id="up">
+        <p>&#8593;</p>
+    </a>
+    </main>
+    <footer class="footer-contacto">
+        <p>&copy; 2024 Proximamente</p>
+        <p>Desarrollada por Miguel Ángel Ferrón Viñuela</p>
+    </footer>
+
+    <!-- Agrega tu código React aquí -->
+    <script src="contenido/recetasmes.js" type="text/babel"></script>
+    <script src="contenido/recetasnuevas.js" type="text/babel"></script>
+    <script src="contenido/recetasclasificadas.js" type="text/babel"></script>
+    
+</body>
+
+</html>

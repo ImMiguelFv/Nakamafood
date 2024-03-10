@@ -1,0 +1,370 @@
+/* Importación de fuentes */
+@font-face {
+  font-family: "logo"; /* Nombre de la fuente */
+  src: url(../fonts/one_piece/ONE\ PIECE.ttf); /* Ruta de la fuente 'logo' */
+}
+
+@font-face {
+  font-family: "like"; /* Nombre de la fuente */
+  src: url(../fonts/widges/Widges-Demo.ttf); /* Ruta de la fuente 'like' */
+}
+
+@font-face {
+  font-family: "xeno"; /* Nombre de la fuente */
+  src: url(../foonts/Xeno/Xenogears_font.ttf); /* Ruta de la fuente 'xeno' */
+}
+
+@font-face {
+  font-family: 'Designer'; /* Nombre de la fuente */
+  src: url('../fonts/nexa/Nexa-Heavy.ttf') format('opentype'); /* Ruta de la fuente 'Designer' */
+}
+
+/* Variables globales */
+:root {
+  --darkRed: hsla(0, 0%, 100%, 0); /* Color rojo oscuro con transparencia */
+  --lightRed: #ffffff; /* Color rojo claro */
+  --darkOrange: #be5905; /* Color naranja oscuro */
+  --lightOrange: #00ffb3; /* Color naranja claro */
+  --background: #ececec; /* Color de fondo general */
+  --coral: #FF6347; /* Color coral */
+  --grisclaro: #dfdddd; /* Color gris claro */
+  --tres: #333333; /* Color negro */
+  --azul: #000000; /* Color azul */
+  --azuloscuro: #000000; /* Color azul oscuro */
+  --gris: rgb(185, 184, 184); /* Color gris */
+  --grisaceo: #d8d8d814; /* Color grisaceo */
+  --amarillo: #ffef5b; /* Color amarillo */
+  --azulbrillante: #000000; /* Color azul brillante */
+  --rojo: #c70909; /* Color rojo */
+  --gradient: -45deg, rgb(43, 2, 71), #111;
+  --main-clr: violet;
+  --transition-speed-nav: 0.6s ease-out;
+  --transition-speed: 0.3s ease-out;
+}
+
+/* Propiedades globales */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilos generales del cuerpo */
+body {
+  font-family: Designer; /* Fuente por defecto */
+  font-weight: lighter; /* Peso de la fuente */
+}
+
+
+
+/* Main */
+/* Estilos para el contenedor principal de la receta */
+main.receta {
+  display: flex; /* Utiliza flexbox para organizar los elementos internos */
+  flex-direction: column; /* Organiza los elementos en columnas */
+  align-items: center; /* Centra horizontalmente los elementos */
+  justify-content: center; /* Centra verticalmente los elementos */
+ 
+}
+
+/* Estilos para la sección de imagen de la receta */
+#imagenreceta {
+  margin-top: 100px;
+  text-align: center; /* Alinea el texto al centro */
+  margin-bottom: 20px; /* Márgen inferior */
+  width: 50%; /* Ancho del 50% */
+}
+
+/* Estilos para el nombre de la receta */
+#imagenreceta h2 {
+
+  color: #333; /* Color de texto para el título de la sección de imagen de receta */
+  font-size: 32px; /* Tamaño de fuente */
+}
+
+/* Estilos para la imagen de la receta */
+#imagenreceta img {
+  max-width: 100%!important; /* Ancho máximo del 100% */
+  height: auto!important; /* Altura automática */
+}
+
+/* Efecto para la imagen de la receta al hacer hover */
+#imagenreceta img:hover {
+  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.201); /* Sutil sombra al hacer hover */
+}
+
+/* Estilos para la sección de Video */ 
+#Video {
+  display: flex; /* Utiliza flexbox para organizar los elementos internos */
+  flex-direction: column; /* Organiza los elementos en columnas */
+  align-items: center; /* Centra horizontalmente los elementos */
+  margin: 20px; /* Márgen inferior */
+  margin: 20px; /* Márgenes externos */
+}
+
+/* Titulo que indica que estás en la sección video */
+#Video h2 {
+  color: #333; /* Color de texto para el título de la sección de video */
+  margin-bottom: 20px; /* Márgen inferior */
+  font-size: 32px; /* Tamaño de fuente */
+}
+
+/* Estilos para la clase 'amenidades' (donde se encuentra el iframe)*/
+.amenidades {
+  background-color: var(--rojo); /* Color de fondo para la clase 'amenidades' */
+  border: 0; /* Sin borde */
+  border-radius: 5px; /* Borde redondeado */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra */
+  color: #fff; /* Color de texto para la clase 'amenidades' */
+  font-size: 14px; /* Tamaño de fuente */
+  padding: 10px 25px; /* Relleno interno */
+  cursor: pointer; /* Cursor al pasar por encima */
+}
+
+/* Estilos para el contenedor modal */
+.modal-container {
+  display: flex; /* Utiliza flexbox para organizar los elementos internos */
+  background-color: rgba(0, 0, 0, 0.3); /* Fondo semi-transparente */
+  align-items: center; /* Centra horizontalmente los elementos */
+  justify-content: center; /* Centra verticalmente los elementos */
+  position: fixed; /* Posicionamiento fijo */
+  pointer-events: none; /* Sin eventos de puntero */
+  opacity: 0; /* Opacidad inicial */
+  top: 0; /* Desde la parte superior */
+  left: 0; /* Desde la parte izquierda */
+  height: 100vh; /* Altura del 100% de la ventana */
+  width: 100vw; /* Ancho del 100% de la ventana */
+  transition: opacity 0.3s ease; /* Transición de opacidad */
+}
+
+/* Estilos para la clase 'show' */
+.show {
+  pointer-events: auto; /* Habilita eventos de puntero */
+  opacity: 1; /* Opacidad visible */
+}
+
+/* Estilos para la clase 'modal' */
+.modal {
+  display: flex; /* Utiliza flexbox para organizar los elementos internos */
+  flex-direction: column; /* Organiza los elementos en columnas */
+  align-self: center; /* Alinea consigo mismo en el centro */
+  justify-content: space-between; /* Espacia uniformemente los elementos */
+  background-color: #fff; /* Color de fondo para la clase 'modal' */
+  width: 700px; /* Ancho fijo */
+  height: 500px; /* Altura fija */
+  max-width: 100%; /* Ancho máximo */
+  padding: 30px 50px; /* Relleno interno */
+  border-radius: 5px; /* Borde redondeado */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra */
+  text-align: center; /* Alineación del texto */
+}
+
+/* Estilos para el título en la clase 'modal' */
+.modal h1 {
+  margin: 0; /* Sin márgenes */
+}
+
+/* Estilos para el botón de cierre en la clase 'modal' */
+.modal #close {
+  margin: auto; /* Margen automático */
+  width: 100px; /* Ancho fijo */
+  background-color: var(--rojo); /* Color de fondo para el botón de cierre en la clase 'modal' */
+  border: 0; /* Sin borde */
+  border-radius: 5px; /* Borde redondeado */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra */
+  color: #fff; /* Color de texto para el botón de cierre en la clase 'modal' */
+  font-size: 14px; /* Tamaño de fuente */
+  padding: 10px 25px; /* Relleno interno */
+  cursor: pointer; /* Cursor al pasar por encima */
+}
+
+/* Estilos para el iframe dentro de la clase 'modal' */
+iframe {
+  border: #000000 5px solid; /* Borde sólido */
+  height: 350px; /* Altura fija */
+}
+
+
+/* Estilos para la sección de Ingredientes */
+#Ingredientes {
+  margin-bottom: 20px; /* Márgen inferior */
+  margin-top: 70px; /* Márgen superior */
+  display: flex; /* Utiliza flexbox para organizar los elementos internos */
+  flex-direction: column; /* Organiza los elementos en columnas */
+  align-items: center; /* Centra horizontalmente los elementos */
+  justify-content: flex-start; /* Alinea los elementos al principio del contenedor */
+}
+
+/* Estilos para titulos en la sección de Ingredientes */
+#Ingredientes h2 {
+  color: #333; /* Color de texto para el título de la sección de ingredientes */
+  font-size: 32px; /* Tamaño de fuente */
+  padding: 20px 20px; /* Relleno interno */
+}
+
+/* Estilos para los elementos de la lista de ingredientes */
+.ingredient-item {
+  list-style-type: disc; /* Tipo de viñeta de la lista */
+  margin-left: 20px; /* Márgen izquierdo */
+  color: #555; /* Color de texto para los elementos de la lista de ingredientes */
+  word-wrap: inherit; /* Se hereda el ajuste de palabra */
+  line-height: 1.5; /* Altura de línea */
+  text-align: center; /* Alineación del texto */
+  font-size: 24px; /* Tamaño de fuente */
+  margin: 0 40px; /* Márgenes laterales */
+  list-style-type: none; /* Elimina el estilo de viñeta */
+}
+
+/* Estilos para titulos de cada composición en la sección de Ingredientes  */
+#Ingredientes .ingredientes-separado {
+  color: #555; /* Color de texto para el contenido de la sección de proceso */
+  text-align: center; /* Alineación del texto */
+  font-size: 24px; /* Tamaño de fuente */
+  margin: 40px 40px; /* Márgenes exteriores */
+}
+
+
+/* Estilos para la sección de Proceso */
+#Proceso {
+  margin-bottom: 20px; /* Márgen inferior */
+  display: flex; /* Utiliza flexbox para organizar los elementos internos */
+  flex-direction: column; /* Organiza los elementos en columnas */
+  align-items: center; /* Centra horizontalmente los elementos */
+  justify-content: center; /* Centra verticalmente los elementos */
+  padding: 90px 20px; /* Relleno interno */
+  max-width: 70%; /* Ancho máximo */
+}
+
+/* Estilos para el título dentro de la sección de Proceso */
+#Proceso h2 {
+  color: #333; /* Color de texto para el título de la sección de proceso */
+  font-size: 32px; /* Tamaño de fuente */
+  padding: 20px 20px; /* Relleno interno */
+}
+
+/* Estilos para los párrafos dentro de la sección de Proceso */
+#Proceso p {
+  line-height: 1.5; /* Altura de línea */
+  color: #555; /* Color de texto para el contenido de la sección de proceso */
+  text-align: center; /* Alineación del texto */
+  font-size: 24px; /* Tamaño de fuente */
+  margin: 0 40px; /* Márgenes laterales */
+}
+
+/* Estilos para los títulos de los párrafos dentro de la sección de Proceso */
+#Proceso .proceso-separado {
+  color: #555; /* Color de texto para el contenido de la sección de proceso */
+  text-align: center; /* Alineación del texto */
+  font-size: 24px; /* Tamaño de fuente */
+  margin: 40px 40px; /* Márgenes exteriores */
+}
+
+
+/* Sección de recomendaciones y comentarios */
+.recomendaciones-comentarios {
+  display: grid; /* Utiliza un sistema de cuadrícula para organizar el contenido */
+  grid-template-rows: auto auto; /* Establece dos filas automáticas */
+}
+
+.recomendaciones-comentarios .zona-recomendaciones {
+  display: flex; /* Utiliza flexbox para organizar los elementos internos */
+  flex-direction: column; /* Organiza los elementos en columnas */
+  align-items: center; /* Centra horizontalmente los elementos */
+  justify-content: center; /* Centra verticalmente los elementos */
+  text-align: center; /* Alinea el texto al centro */
+  background-color: var(--grisaceo); /* Color de fondo */
+  margin: 20px 20px; /* Márgenes exteriores */
+  box-shadow: 0px 0px 5px 5px rgba(180, 179, 179, 0.209); /* Sutil sombra al hacer hover */
+}
+
+.recomendaciones-comentarios .zona-recomendaciones h2 {
+  margin: 10px 10px; /* Márgenes internos */
+  padding: 10px 10px; /* Relleno interno */
+}
+
+.recomendaciones-comentarios .zona-recomendaciones a {
+  text-decoration: none; /* Sin subrayado en los enlaces */
+  color: var(--rojo); /* Color de texto */
+}
+
+.recomendaciones-comentarios .zona-recomendaciones .recomendaciones {
+  display: grid; /* Utiliza un sistema de cuadrícula para organizar el contenido */
+  grid-template-columns: repeat(3, 1fr); /* Divide en tres columnas iguales */
+  gap: 20px; /* Espacio entre elementos */
+  padding: 10px 10px; /* Relleno interno */
+}
+
+.recomendaciones-comentarios .zona-recomendaciones .recomendaciones img {
+  width: 90%; /* Ancho del 90% */
+  height: 200px; /* Altura fija */
+}
+
+.recomendaciones-comentarios .zona-recomendaciones .recomendaciones img:hover {
+  box-shadow: 0px 0px 5px 5px rgba(255, 0, 0, 0.209); /* Sutil sombra al hacer hover */
+}
+
+.recomendaciones-comentarios .zona-recomendaciones .recomendaciones .receta-recomendada {
+  display: flex; /* Utiliza flexbox para organizar los elementos internos */
+  justify-content: space-between; /* Espacia uniformemente los elementos */
+  align-items: center; /* Centra verticalmente los elementos */
+  flex-direction: column; /* Organiza los elementos en columnas */
+  padding: 40px 40px; /* Relleno interno */
+  text-align: center; /* Alinea el texto al centro */
+}
+
+.recomendaciones-comentarios .zona-recomendaciones .recomendaciones h3 {
+  color: var(--rojo); /* Color de texto */
+}
+
+/* Media query para dispositivos móviles */
+@media screen and (max-width: 768px) {
+  /* Ajusta el cuerpo para dispositivos móviles */
+  body {
+    width: 100%; /* Ancho completo */
+    text-align: center; /* Alineación del texto al centro */
+  }
+
+  /* Coloca correctamente el main debajo del header */
+  .receta {
+    margin-top: 80px; /* Márgen superior */
+    display: grid; /* Utiliza grid para mantener la estructura responsive */
+    grid-template-rows: repeat(3, auto); /* Ajusta el margen superior según sea necesario */
+  }
+
+  /* Ajusta el tamaño de la imagen para dispositivos móviles */
+  #imagenreceta {
+    text-align: center; /* Alineación del texto al centro */
+    margin-bottom: 20px; /* Márgen inferior */
+    width: 90%; /* Ancho del 90% */
+  }
+
+  /* Elimina el margen de los elementos de la lista de ingredientes */
+  .ingredient-item {
+    margin: 0 10px; /* Márgenes laterales */
+  }
+
+  /* Cambia la fuente para mejorar la legibilidad en dispositivos móviles */
+  .ingredient-item {
+    padding: 5px 5px; /* Relleno interno */
+    font-size: 15px !important; /* Tamaño de fuente */
+  }
+
+  /* Ajusta el padding en la sección de Proceso para dispositivos móviles */
+  #Proceso {
+    padding: 10px 10px; /* Ajuste de padding */
+  }
+
+  /* Cambia la fuente para mejorar la legibilidad del párrafo en dispositivos móviles */
+  #Proceso p {
+    padding: 5px 5px; /* Relleno interno */
+    font-size: 15px !important; /* Tamaño de fuente */
+  }
+
+  /* Ajuste de estilos para recomendaciones y comentarios en dispositivos móviles */
+  .recomendaciones-comentarios .zona-recomendaciones .recomendaciones {
+    display: grid; /* Utiliza grid */
+    grid-template-columns: repeat(1, 1fr); /* Una sola columna */
+    gap: 20px; /* Espacio entre elementos */
+    padding: 10px 10px; /* Ajuste de padding */
+  }
+}

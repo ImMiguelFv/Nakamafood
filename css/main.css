@@ -1,0 +1,453 @@
+
+/* ---------------------------------------- */
+/* Fuentes */
+/* ---------------------------------------- */
+@font-face {
+  font-family: "logo";
+  src: url(../fonts/one_piece/ONE\ PIECE.ttf); /* Definición de la fuente 'logo' */
+}
+
+@font-face {
+  font-family: "like";
+  src: url(../fonts/widges/Widges-Demo.ttf); /* Definición de la fuente 'like' */
+}
+
+@font-face {
+  font-family: "xeno";
+  src: url(../foonts/Xeno/Xenogears_font.ttf); /* Definición de la fuente 'xeno' */
+}
+
+@font-face {
+  font-family: 'Designer';
+  src: url('../fonts/nexa/Nexa-Heavy.ttf') format('opentype');
+}
+
+/* Variables globales */
+:root {
+  /* Definición de colores personalizables */
+  --darkRed: hsla(0, 0%, 100%, 0);
+  --lightRed: #ffffff;
+  --darkOrange: #be5905;
+  --lightOrange: #00ffb3;
+  --background: #ececec; /* Color de fondo general */
+  --coral: #FF6347; 
+  --grisclaro: #dfdddd;
+  --tres: #333333;
+  --azul: #000000; /* Color de texto predeterminado para los títulos de sección */
+  --azuloscuro: #000000; 
+  --gris: rgb(185, 184, 184); 
+  --grisaceo: #d8d8d8; 
+  --amarillo: #ffef5b; /* Color de acento para elementos destacados */
+  --azulbrillante: #000000;
+  --rojo: #c70909; /* Color rojo utilizado en algunas secciones */
+  --darkRed: hsl(0, 100%, 12%);
+  --gradient: -45deg, rgb(43, 2, 71), #111;
+  --main-clr: violet;
+  --transition-speed-nav: 0.6s ease-out;
+  --transition-speed: 0.3s ease-out;
+}
+
+/* Propiedades globales */
+* {
+  margin: 0; /* Elimina el margen en todos los elementos */
+  padding: 0; /* Elimina el relleno en todos los elementos */
+  box-sizing: border-box; /* Utiliza el modelo de caja border-box para todos los elementos */
+  scroll-behavior: smooth;
+
+
+}
+
+/* Estilos para la clase 'fotocomida' */
+.fotocomida {
+  text-align: center; /* Centra el contenido de los elementos con la clase 'fotocomida' */
+}
+
+/* Estilos para el cuerpo (body) */
+body {
+  background-color: var(--background); /* Establece el color de fondo del cuerpo utilizando una variable definida previamente */
+  grid-template-rows: auto 1fr auto; /* Define las filas de la cuadrícula del cuerpo */
+  min-height: 100vh; /* Establece la altura mínima del cuerpo como el 100% del viewport height */
+  display: grid; /* Utiliza un layout de grid para organizar el contenido del cuerpo */
+  font-family: Designer; /* Establece la fuente predeterminada para el cuerpo */
+  font-weight: lighter; /* Establece el peso de la fuente como más ligero */
+}
+
+/* Valores generales */
+
+/* Valores predefinidos para las imágenes */
+img {
+  width: 88%; /* Ancho máximo del 88% para las imágenes */
+  height: 300px; /* Altura fija de 300px */
+  object-fit: cover; /* Escalado de la imagen para cubrir su contenedor */
+  object-position: bottom; /* Posición de la imagen centrada en la parte inferior */
+}
+
+/* Efecto hover para las imágenes */
+img:hover {
+  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.201); /* Sutil sombra al hacer hover */
+  transform: scale(1.8); /* Escalado al hacer hover para un efecto de zoom */
+  -webkit-transform: scale(1.8); /* Prefijo para navegadores webkit */
+  -moz-transform: scale(1.8); /* Prefijo para navegadores Firefox */
+  -ms-transform: scale(1.8); /* Prefijo para navegadores Microsoft */
+  -o-transform: scale(1.8); /* Prefijo para navegadores Opera */
+}
+
+/* Diseño predefinido para los enlaces */
+a {
+  text-decoration: none; /* Elimina la subrayado predeterminado de los enlaces */
+  color: black; /* Color de texto predeterminado para enlaces */
+  cursor: pointer; /* Cambia el cursor al pasar por encima del enlace */
+}
+
+/* Estilo para los títulos de sección */
+h2 {
+  font-size: 24px; /* Tamaño de fuente de los títulos de sección */
+  color: var(--azul); /* Color del texto de los títulos de sección */
+  margin-bottom: 10px; /* Espaciado inferior a los títulos de sección */
+  text-align: center; /* Centra el texto dentro de los títulos de sección */
+}
+
+/* Tamaño de fuente para títulos de sección más grandes */
+.titulosection {
+  font-size: 36px;
+}
+
+
+/* Estilo para el grupo de filtros */
+.form-group {
+  display: flex; /* Mostrar como un flex container */
+  justify-content: space-around; /* Distribuir uniformemente los elementos horizontalmente */
+  align-items: center; /* Centrar verticalmente los elementos */
+  margin-bottom: 10px; /* Ajustar el espacio entre los grupos de filtros */
+}
+
+/* Estilo para las etiquetas de filtro */
+label {
+  display: flex; /* Mostrar como un flex container */
+  flex-direction: column; /* Apilar los elementos verticalmente */
+  text-align: center; /* Centrar el texto horizontalmente */
+}
+
+/* Estilo para los selectores de filtro */
+select {
+  padding: 8px; /* Relleno interior de 8px */
+  border: 1px solid var(--gris); /* Borde de 1px sólido con color gris */
+  border-radius: 5px; /* Bordes redondeados de 5px */
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1); /* Sutil sombra interna */
+  font-size: 14px; /* Tamaño de fuente de 14px */
+  cursor: pointer;
+}
+
+/* Estilo para las opciones de los selectores */
+select option {
+  font-size: 14px; /* Tamaño de fuente de las opciones de selector */
+}
+
+
+/* Estilo para el contenido principal */
+.content {
+  display: flex; /* Mostrar como un flex container */
+  justify-content: center; /* Centrar horizontalmente el contenido */
+  flex-direction: column; /* Apilar los elementos verticalmente */
+  
+
+}
+.hero{
+display: flex;
+justify-content: center;
+flex-direction: column;
+align-items: center;
+background-image: url(../images/one-piece-sanji-1986543.webp) ;
+background-size: cover; /* La imagen de fondo cubrirá todo el contenedor */
+background-repeat: no-repeat; /* Evita que la imagen se repita */
+background-position: center; /* Centra la imagen en el contenedor */
+height: 600px;
+margin-top: 70px;
+
+}
+.hero .hero-text{
+  background-color: rgba(255, 255, 225, 0.377);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.hero .hero-text h2{
+
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--azul);
+  margin-bottom: 20px;
+}
+.hero .hero-text p{
+
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--azul);
+  margin: 20px;
+  text-align: center;
+}
+/* Estilo para la sección de recetas destacadas */
+.recetas-destacadas {
+  display: flex; /* Mostrar como un flex container */
+  flex-direction: column; /* Apilar los elementos verticalmente */
+  align-items:center; /* Centrar los elementos horizontalmente */
+  justify-content: center; /* Centrar los elementos verticalmente */
+  margin-top: 20px; /* Margen superior de 20px */
+}
+
+/* Estilo para la receta destacada del mes */
+.destacada-mes {
+  display: flex; /* Mostrar como un flex container */
+  flex-direction: column; /* Apilar los elementos verticalmente */
+  align-items:center; /* Centrar los elementos horizontalmente */
+  justify-content: center; /* Centrar los elementos verticalmente */
+}
+
+/* Estilo para la receta top */
+.receta-top {
+  margin: auto; /* Margen automático en todos los lados */
+  width: 60rem; /* Ancho máximo de 70rem para la receta top */
+  display: flex; /* Mostrar como un flex container */
+  justify-content: space-between; /* Distribuir el espacio entre los elementos */
+  align-items: center; /* Centrar los elementos verticalmente */
+  flex-direction: column; /* Apilar los elementos verticalmente */
+  background-color: var(--rojo); /* Color de fondo rojo para la receta top */
+}
+
+/* Estilo del titulo de la receta top */
+.receta-top h2 {
+  text-align: center; /* Centrar el texto horizontalmente */
+  padding: 25px 40px; /* Relleno interior de 25px arriba y abajo, 40px a los lados */
+  font-size: 32px; /* Tamaño de fuente para el título de la receta top */
+  color: var(--amarillo); /* Color amarillo para el título de la receta top */
+}
+
+/* Estilo del enlace de la receta top */
+.receta-top a {
+  text-align: center; /* Centrar el texto horizontalmente */
+  padding: 25px 40px; /* Relleno interior de 25px arriba y abajo, 40px a los lados */
+  font-size: 32px; /* Tamaño de fuente para el enlace de la receta top */
+  color: var(--amarillo); /* Color amarillo para el enlace de la receta top */
+}
+
+/* Estilo de la imagen top */
+.receta-top img {
+  width: 100%; /* Ancho del 100% para la imagen top */
+  height: auto; /* Altura automática para mantener la proporción */
+}
+
+/* Estilo para el contenedor de las otras recetas destacadas */
+.otras-destacadas .recetas {
+  display: grid; /* Mostrar como un grid container */
+  grid-template-columns: repeat(3, 1fr); /* Tres columnas con igual ancho */
+}
+
+/* Estilo para cada receta dentro de las otras destacadas */
+.otras-destacadas .recetas .receta {
+  display: flex; /* Mostrar como un flex container */
+  justify-content: space-between; /* Distribuir el espacio entre los elementos */
+  align-items: center; /* Centrar los elementos verticalmente */
+  flex-direction: column; /* Apilar los elementos verticalmente */
+  padding: 40px 40px; /* Relleno interior de 40px arriba y abajo, 40px a los lados */
+  text-align: center; /* Centrar el texto horizontalmente */
+}
+
+/* Estilo para la sección de novedades */
+.novedades .recetas {
+  display: grid; /* Mostrar como un grid container */
+  grid-template-columns: repeat(3, 1fr); /* Tres columnas con igual ancho */
+}
+
+/* Estilo para cada receta dentro de las novedades */
+.novedades .recetas .receta {
+  display: flex; /* Mostrar como un flex container */
+  justify-content: space-between; /* Distribuir el espacio entre los elementos */
+  align-items: center; /* Centrar los elementos verticalmente */
+  flex-direction: column; /* Apilar los elementos verticalmente */
+  text-align: center; /* Centrar el texto horizontalmente */
+  flex-wrap: wrap; /* Permitir que los elementos se envuelvan en varias líneas */
+  padding: 40px 40px; /* Relleno interior de 40px arriba y abajo, 40px a los lados */
+}
+
+/* Estilo para la sección de recetas clasificadas */
+.clasificadas-container .recetas {
+  display: grid; /* Mostrar como un grid container */
+  grid-template-columns: repeat(3, 1fr); /* Tres columnas con igual ancho */
+  gap: 30px; /* Espacio entre las recetas */
+}
+
+/* Estilo para cada receta dentro de las clasificadas */
+.recetas-clasificadas .recetas .receta {
+  display: flex; /* Mostrar como un flex container */
+  justify-content: space-between; /* Distribuir el espacio entre los elementos */
+  align-items: center; /* Centrar los elementos verticalmente */
+  flex-direction: column; /* Apilar los elementos verticalmente */
+  text-align: center; /* Centrar el texto horizontalmente */
+}
+
+/* Estilo para la sección de resultados vacíos */
+.sin-resultados {
+  text-align: center; /* Centrar el texto horizontalmente */
+  width: 100%; /* Ancho del 100% */
+  padding: 20px; /* Relleno interior de 20px */
+  margin-bottom: 20px; /* Margen inferior de 20px para separar de las recetas */
+  grid-column: 2; /* Ubicación en la segunda columna del grid */
+}
+
+/* Estilo para los párrafos dentro de la sección de resultados vacíos */
+.sin-resultados p {
+  margin-bottom: 10px; /* Margen inferior de 10px */
+}
+
+/* Estilo para la imagen en resultados vacíos */
+.sin-resultados img {
+  max-width: 100%; /* Ancho máximo del 100% para la imagen */
+  height: auto; /* Altura automática para mantener la proporción */
+}
+
+/* Efecto hover en la imagen de resultados vacíos */
+.sin-resultados img:hover {
+  transform: none; /* No aplicar transformación al hacer hover */
+  box-shadow: none !important; /* No aplicar sombra al hacer hover */
+}
+/* Media querys */
+@media (max-width: 1080px){
+  /* Ajustes de diseño para dispositivos con ancho máximo de 1080px */
+  .otras-destacadas .recetas {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .novedades .recetas {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .clasificadas-container .recetas {
+    display: grid;
+    grid-template-columns: repeat(1, auto);
+  }
+  .form-group {
+    /* Ajustes de diseño para el grupo de filtros */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 10px;
+  } 
+}
+@media (max-width: 768px) {
+  /* Ajustes de diseño para dispositivos con ancho máximo de 768px */
+  /* Ajustes de diseño para el grupo de filtros */
+  .form-group {
+    display: flex; /* Mostrar como un flex container */
+    justify-content: space-around; /* Distribuir el espacio alrededor de los elementos */
+    align-items: center; /* Centrar los elementos verticalmente */
+    flex-direction: column; /* Apilar los elementos verticalmente */
+    margin-bottom: 10px; /* Margen inferior de 10px */
+  }
+
+  /* Contenido Principal */
+  /* Ajustes de diseño para el contenido principal */
+  .content {
+    display: grid; /* Mostrar como un grid container */
+    grid-template-rows: repeat(3, auto); /* Tres filas con altura automática */
+  }
+
+  /* Recetas destacadas */
+  /* Ajustes de diseño para la sección de recetas destacadas */
+  .recetas-destacadas {
+    display: grid; /* Mostrar como un grid container */
+    grid-template-rows: repeat(3, auto); /* Tres filas con altura automática */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+  }
+
+  /* Receta top */
+  /* Ajustes de diseño para la receta top */
+  .receta-top {
+    margin: auto; /* Margen automático en todos los lados */
+    width: 100%; /* Ancho del 100% */
+    height: auto; /* Altura automática para mantener la proporción */
+    padding: none; /* Sin relleno */
+  }
+
+  /* Estilo de la imagen top */
+  /* Ajustes de diseño para la imagen top */
+  .receta-top img {
+    width: 100%; /* Ancho del 100% */
+    height: auto; /* Altura automática para mantener la proporción */
+    padding: 10px 10px; /* Relleno interior de 10px arriba y abajo, 10px a los lados */
+  }
+
+  /* Otras recetas top */
+  /* Ajustes de diseño para las otras recetas destacadas */
+  .otras-destacadas .recetas {
+    display: grid; /* Mostrar como un grid container */
+    grid-template-columns: repeat(1, 1fr); /* Una columna con ancho fraccionado */
+  }
+
+  /* Ajustes de diseño para cada receta dentro de las otras destacadas */
+  .otras-destacadas .recetas .receta {
+    display: flex; /* Mostrar como un flex container */
+    justify-content: space-between; /* Distribuir el espacio entre los elementos */
+    align-items: center; /* Centrar los elementos verticalmente */
+    flex-direction: column; /* Apilar los elementos verticalmente */
+    padding: 0 0; /* Sin relleno horizontal, sin relleno vertical */
+  }
+
+  /* Novedades */
+  /* Ajustes de diseño para la sección de novedades */
+  .novedades .recetas {
+    display: grid; /* Mostrar como un grid container */
+    grid-template-columns: repeat(1, 1fr); /* Una columna con ancho fraccionado */
+  }
+
+  /* Ajustes de diseño para cada receta dentro de las novedades */
+  .novedades .recetas .receta {
+    display: flex; /* Mostrar como un flex container */
+    justify-content: space-between; /* Distribuir el espacio entre los elementos */
+    align-items: center; /* Centrar los elementos verticalmente */
+    flex-direction: column; /* Apilar los elementos verticalmente */
+    padding: 40px 40px; /* Relleno interior de 40px arriba y abajo, 40px a los lados */
+  }
+
+  /* Recetas Clasificadas */
+  /* Ajustes de diseño para la sección de recetas clasificadas */
+  .clasificadas-container .recetas {
+    display: grid; /* Mostrar como un grid container */
+    grid-template-columns: repeat(1, 1fr); /* Una columna con ancho fraccionado */
+  }
+}
+
+
+/* Animando imágenes y hovers generales */
+
+@keyframes show {
+  /* Definimos la animación llamada 'show' */
+  from {
+    opacity: 0; /* Opacidad al inicio de la animación */
+    transform: scale(0.15); /* Escala al inicio de la animación */
+    -moz-transform: scale(0.15); /* Prefijo para navegadores Mozilla */
+    -ms-transform: scale(0.15); /* Prefijo para navegadores Microsoft */
+    -o-transform: scale(0.15); /* Prefijo para navegadores Opera */
+    -webkit-transform: scale(0.15); /* Prefijo para navegadores Webkit */
+    -moz-transform: scale(0.15); /* Duplicado del prefijo para navegadores Mozilla */
+  }
+  to {
+    opacity: 1; /* Opacidad al final de la animación */
+    transform: scale(1); /* Escala al final de la animación */
+  }
+}
+
+img {
+  /* Aplicamos la animación a todas las imágenes */
+  view-timeline-name: --image;
+  view-timeline-axis: block;
+  animation-timeline: --image;
+  animation-name: show; /* Nombre de la animación */
+  animation-range: entry 25% cover 30%; /* Rango de la animación */
+  animation-fill-mode: both; /* Modo de relleno de la animación */
+}
+

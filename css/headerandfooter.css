@@ -1,0 +1,291 @@
+
+/* ---------------------------------------- */
+/* Fuentes */
+/* ---------------------------------------- */
+@font-face {
+  font-family: "logo";
+  src: url(../fonts/one_piece/ONE\ PIECE.ttf); /* Definición de la fuente 'logo' */
+}
+
+@font-face {
+  font-family: "like";
+  src: url(../fonts/widges/Widges-Demo.ttf); /* Definición de la fuente 'like' */
+}
+
+@font-face {
+  font-family: "xeno";
+  src: url(../foonts/Xeno/Xenogears_font.ttf); /* Definición de la fuente 'xeno' */
+}
+
+@font-face {
+  font-family: 'Designer';
+  src: url('../fonts/nexa/Nexa-Heavy.ttf') format('opentype');
+}
+/* Variables globales */
+:root {
+  /* Definición de colores personalizables */
+  --darkRed: hsla(0, 0%, 100%, 0);
+  --lightRed: #ffffff;
+  --darkOrange: #be5905;
+  --lightOrange: #00ffb3;
+  --background: #ececec; /* Color de fondo general */
+  --coral: #FF6347; 
+  --grisclaro: #dfdddd;
+  --tres: #333333;
+  --azul: #000000; /* Color de texto predeterminado para los títulos de sección */
+  --azuloscuro: #000000; 
+  --gris: rgb(185, 184, 184); 
+  --grisaceo: #d8d8d8; 
+  --amarillo: #ffef5b; /* Color de acento para elementos destacados */
+  --azulbrillante: #000000;
+  --rojo: #c70909; /* Color rojo utilizado en algunas secciones */
+  --darkRed: hsl(0, 100%, 12%);
+}
+/* Propiedades del header */
+.cabecera {
+  display: flex; /* Establece el modelo de caja como flexible */
+  justify-content:  space-around; /* Distribuye el espacio alrededor de los elementos hijos */
+  align-items: center; /* Centra los elementos verticalmente */
+  height: 80px; /* Altura del header */
+  background-color: var(--rojo); /* Color de fondo del header */
+  width: 100%;
+  position: fixed;
+  z-index: 1000;
+  
+}
+.cabecera.mostrar {
+  top: 0; /* muestra el header cuando se detiene el scroll */
+}
+/* Propiedades del logo */
+.cabecera .logo {
+  cursor: pointer; /* Cambia el cursor a un puntero al pasar por encima */
+  font-size: 40px; /* Tamaño del texto del logo en unidades vw */
+  font-family: logo; /* Uso de la fuente 'logo' */
+  text-shadow: 2px 2px 20px 10px black; /* Efecto de sombra al pasar el ratón */
+
+}
+
+.cabecera .logo a {
+  color: var(--amarillo); /* Color del texto del logo */
+    text-decoration: none;/* elimino la decoracion */
+    cursor: pointer; /* Establecemos cursor como puntero */
+  }
+  
+
+.cabecera img {
+  color: var(--amarillo); /* Color del texto del logo (se aplica a las imágenes dentro de la cabecera) */
+}
+
+/* Propiedades de la barra de navegación y sus componentes */
+.cabecera .nav_bar .nav-links {
+  display: flex; /* Establece el modelo de caja como flexible */ 
+  justify-content: space-between; /* Distribuye el espacio entre los elementos de manera uniforme */
+  list-style: none; /* Elimina el estilo de lista de las opciones de navegación */
+  flex-direction: row;
+
+}
+
+.cabecera .nav_bar .nav-links li {
+  padding: 0 1vw; /* Ajusta el padding horizontal con unidades vw */
+  display: inline-block;
+  font-size: 30px; /* Utiliza unidades vw para hacer el tamaño de la fuente responsivo */
+}
+
+.cabecera .nav_bar .nav-links a {
+  font-family: logo; /* Uso de la fuente 'logo' para los enlaces */
+  text-decoration: none; /* Elimina el subrayado de los enlaces */
+  color: var(--amarillo); /* Color de los enlaces */
+}
+
+.cabecera .nav_bar .intercambio-navegacion {
+  font-size: 40px; /* Tamaño del icono de intercambio de navegación */
+  cursor: pointer; /* Cambia el cursor a un puntero al pasar por encima */
+  color: var(--amarillo); /* Color del icono de intercambio de navegación */
+  background-color: transparent; /* Fondo transparente */
+  border: none; /* Sin borde */
+  padding: 0 10px; /* Margen interno del icono de intercambio de navegación */
+  display: none; /* Inicialmente oculto */
+  margin-right: 10px; /* Margen derecho del icono de intercambio de navegación */
+}
+
+/* Estilos para las líneas del icono de intercambio de navegación (hamburguesa) */
+._layer {
+  background: #333333; /* Color de fondo de las líneas */
+  margin-bottom: 4px; /* Márgen inferior */
+  border-radius: 2px; /* Radio de borde */
+  width: 28px; /* Ancho */
+  height: 4px; /* Altura */
+  opacity: 1; /* Opacidad */
+  -webkit-transform: translate3d(0, 0, 0); /* Transformación para mejorar la calidad de la animación en algunos navegadores */
+  transform: translate3d(0, 0, 0); /* Transformación para mejorar la calidad de la animación en algunos navegadores */
+  -webkit-transition: all 0.25s cubic-bezier(0.05, 1.04, 0.72, 0.98); /* Transición para suavizar el cambio de propiedades */
+  transition: all 0.25s cubic-bezier(0.05, 1.04, 0.72, 0.98); /* Transición para suavizar el cambio de propiedades */
+}
+
+/* Animación de las líneas al pasar el ratón sobre el icono de hamburguesa */
+.hamburger:hover .-top {
+  -webkit-transform: translateY(-100%); /* Translación hacia arriba */
+  -ms-transform: translateY(-100%); /* Translación hacia arriba */
+  transform: translateY(-100%); /* Translación hacia arriba */
+}
+
+.hamburger:hover .-bottom {
+  -webkit-transform: translateY(50%); /* Translación hacia abajo */
+  -ms-transform: translateY(100%); /* Translación hacia abajo */
+  transform: translateY(100%); /* Translación hacia abajo */
+}
+
+/* Animación del icono de hamburguesa en estado activo */
+.hamburger.is-active .-top {
+  -webkit-transform: translateY(200%) rotate(45deg) !important; /* Translación hacia abajo y rotación */
+  -ms-transform: translateY(200%) rotate(45deg) !important; /* Translación hacia abajo y rotación */
+  transform: translateY(200%) rotate(45deg) !important; /* Translación hacia abajo y rotación */
+}
+
+.hamburger.is-active .-mid {
+  opacity: 0; /* Hace invisible la línea central al activar el icono */
+}
+
+.hamburger.is-active .-bottom {
+  -webkit-transform: translateY(-200%) rotate(135deg) !important; /* Translación hacia arriba y rotación */
+  -ms-transform: translateY(-200%) rotate(135deg) !important; /* Translación hacia arriba y rotación */
+  transform: translateY(-200%) rotate(135deg) !important; /* Translación hacia arriba y rotación */
+}
+
+
+/* Hovers de la cabecera */
+.cabecera .logo a:hover {
+  color: var(--background); /* Cambia el color de los enlaces al pasar el ratón */
+
+}
+
+.cabecera .nav_bar .nav-links a:hover {
+  color: var(--background); /* Cambia el color de los enlaces al pasar el ratón */
+}
+
+.cabecera .nav_bar .intercambio-navegacion:hover {
+  color: var(--background); /* Cambia el color del icono de intercambio al pasar el ratón */
+  transform: scale(1.1); /* Escala el icono al pasar el ratón */
+  transition: 0.3s; /* Transición suave de 0.3 segundos */
+  text-shadow: 0px 0px 10px 10px var(--background); /* Efecto de sombra al pasar el ratón */
+}
+
+/* Media query para la cabecera en dispositivos con un ancho máximo de 768px */
+@media (max-width: 768px) {
+  .cabecera {
+      position: fixed;
+      display: flex; /* Disposición de los elementos en línea */
+      justify-content: space-around; /* Espaciado uniforme de los elementos en el header */
+      align-items: center; /* Alineación central de los elementos en el header */
+      height: 80px; /* Altura del header en dispositivos móviles */
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000; /* Índice de apilamiento para estar por encima de otros elementos */
+  }
+
+  .cabecera .logo {
+      font-size: 35px; /* Tamaño del texto del logo en dispositivos móviles */
+  }
+
+  .cabecera .nav_bar .intercambio-navegacion {
+      display: block; /* Mostrar el icono de intercambio en dispositivos móviles */
+      margin-right: 10px;
+  }
+
+  .cabecera .nav_bar .nav-links li {
+      line-height: 40px; /* Altura de línea para las opciones de navegación en dispositivos móviles */
+      padding: 0 1vw; /* Ajusta el padding horizontal con unidades vw */
+      display: inline-block;
+      font-size: 5vw; /* Utiliza unidades vw para hacer el tamaño de la fuente responsivo */
+  }
+
+  .cabecera .nav_bar .nav-links li:hover {
+      padding: 0 1vw; /* Ajusta el padding horizontal con unidades vw */
+      font-size: 5vw; /* Utiliza unidades vw para hacer el tamaño de la fuente responsivo */
+  }
+
+  .cabecera .nav_bar .nav-links {
+      display: flex;
+      flex-direction: column; /* Cambiar la dirección de las opciones de navegación a columna */
+      position: fixed; /* Fijar la posición de las opciones de navegación */
+      top: -100%; /* Inicialmente fuera de la pantalla */
+      left: 0;
+      width: 100%;
+      align-items: center;
+      padding: 20px 0;
+      background-color: var(--rojo);
+  }
+
+  .cabecera .nav_bar .nav-links--visible {
+      top: 80px; /* Posición visible de las opciones de navegación */
+      animation: 0.9s cubic-bezier(.25, 1, .30, 1) wipe-in-down both;
+  }
+}
+
+/* Animación de entrada para opciones de navegación en dispositivos móviles */
+@keyframes wipe-in-down {
+  from {
+      clip-path: inset(0 0 100% 0);
+  }
+  to {
+      clip-path: inset(0 0 0 0);
+  }
+}
+/* Footer */
+
+/* Estilos para el pie de página */
+.footer-contacto {
+  /* Estilo para la sección de contacto en el pie de página */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  background-color: var(--rojo); /* Color de fondo */
+  color: var(--amarillo); /* Color del texto */
+  margin-top: 20px; /* Márgen superior */
+  bottom: 0; /* Posicionamiento en la parte inferior */
+  height: 110px; /* Altura del pie de página */
+  text-align: center; /* Alineación del texto */
+  font-family: Designer; /* Fuente */
+  font-weight: lighter; /* Grosor de la fuente */
+}
+
+.footer-container {
+  /* Estilo para el contenedor del pie de página */
+  margin: 0 auto; /* Centra el contenedor horizontalmente */
+  padding: 0 20px; /* Relleno */
+}
+
+.footer-contacto p {
+  /* Estilo para los párrafos en la sección de contacto del pie de página */
+  font-size: 20px; /* Tamaño de fuente */
+}
+
+/* Estilo para el botón de scroll hacia arriba */
+#up {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  background-color: crimson;
+  color: #fff;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0.5px 1px 5px 5px rgba(0, 0, 0, 0.5);
+  transition: var(--transition-speed);
+  cursor: pointer;
+  color: #fff;
+  text-decoration: none;
+  font-size: 25px;
+  font-weight: bolder;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  display: none;
+}
+
+#up:hover {
+  background-color: rgb(156, 1, 32);
+}
+
